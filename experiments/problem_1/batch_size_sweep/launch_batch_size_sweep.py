@@ -1,17 +1,16 @@
-EXPERIMENT_KEY = "lr-tuning-v1"
-LEARNING_RATES = (1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2)
-
+EXPERIMENT_KEY = "batch-size-tuning-v1"
+BATCH_SIZE = (16, 32, 64, 128, 256)
 
 def build_runs():
     from train import TrainConfig
 
     return [
         TrainConfig(
-            learning_rate=learning_rate,
+            batch_size=batch_size,
             run_name_suffix=EXPERIMENT_KEY,
             wandb_tags=(EXPERIMENT_KEY,),
         )
-        for learning_rate in LEARNING_RATES
+        for batch_size in BATCH_SIZE
     ]
 
 

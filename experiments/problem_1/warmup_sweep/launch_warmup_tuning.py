@@ -1,17 +1,16 @@
-EXPERIMENT_KEY = "lr-tuning-v1"
-LEARNING_RATES = (1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2)
-
+EXPERIMENT_KEY = "p1a-warmup-v1"
+WARMUP_PERCENTS = (0.001, 0.003, 0.01, 0.03, 0.1)
 
 def build_runs():
     from train import TrainConfig
 
     return [
         TrainConfig(
-            learning_rate=learning_rate,
+            warmup_percent=warmup,
             run_name_suffix=EXPERIMENT_KEY,
             wandb_tags=(EXPERIMENT_KEY,),
         )
-        for learning_rate in LEARNING_RATES
+        for warmup in WARMUP_PERCENTS
     ]
 
 

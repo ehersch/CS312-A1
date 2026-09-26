@@ -1,4 +1,4 @@
-EXPERIMENT_KEY = "lr-tuning-v1"
+EXPERIMENT_KEY = "lr-tuning-v2"
 LEARNING_RATES = (1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2)
 
 

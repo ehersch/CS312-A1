@@ -1,17 +1,16 @@
-EXPERIMENT_KEY = "lr-tuning-v1"
-LEARNING_RATES = (1e-4, 3e-4, 1e-3, 3e-3, 1e-2, 3e-2)
-
+EXPERIMENT_KEY = "p1a-weight-decay-v1"
+WEIGHT_DECAYS = (0.01, 0.03, 0.1, 0.3, 1.0)
 
 def build_runs():
     from train import TrainConfig
 
     return [
         TrainConfig(
-            learning_rate=learning_rate,
+            weight_decay=weight_decay,
             run_name_suffix=EXPERIMENT_KEY,
             wandb_tags=(EXPERIMENT_KEY,),
         )
-        for learning_rate in LEARNING_RATES
+        for weight_decay in WEIGHT_DECAYS
     ]
 
 
